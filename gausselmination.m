@@ -9,16 +9,16 @@ for k = 1 : n-1
     for j = k : n + 1
       C(i,j) = abs(C(i,j)) - (u * C(k,j));
       display(C);
-    endfor
-  endfor
-endfor
+    end
+  end
+end
 b = C(:,n+1);
 for i=n:-1:1 
   sum1 = 0;
     for j=i+1:n
       sum1 = sum1 + C(i,j)*X(j,1);
-    endfor
+    end
   X(i,1) = ( b(i,1) - sum1)/C(i,i);
-endfor
-output_precision(7);
+end
+
 display(X);

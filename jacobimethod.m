@@ -9,21 +9,17 @@ B = [7.85; -19.3; 71.4];
 n = input('Number of Unknowns: ');
 maxit = 100;
 tol = 0.01;
-fprintf('\tX1\t X2\t X3\n');
+fprintf('\t\tX1  \t\tX2  \t\tX3 \n');
 for iter = 1:maxit
   
   fprintf('#%d',iter);
    
-   
      X = ((invD)*B)-(invD*R*X);
-    
-    
-      disp(X');
-      
-    
    
+     disp(X');
+
    if( abs((X - Y) < tol))
       return;
     end
     Y = X;
- endfor
+end

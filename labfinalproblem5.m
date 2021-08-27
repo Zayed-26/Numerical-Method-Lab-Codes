@@ -1,25 +1,28 @@
-A = [3 -.1 -.2; 0.1 7 -.3; .3 -.2 10];
-X = zeros(3,1);
-Y = zeros(3,1);
-B = [7.85; -19.3; 71.4];
-tol = 0.001;
+A = [10 -2 -1 -1; -2 10 -1 -1; -1 -1 10 -2; -1 -1 -2 10];
+X = zeros(4,1);
+Y = zeros(4,1);
+B = [3; 15; 27; -9];
+n = input('Number of Unknowns: ');
+tol = 0.01;
 maxit = 100;
 for iter = 1:maxit
+  fprintf('#%d\t',iter);
   for i=1:n
-    sum1 = sum2 =0;
+    sum1 = 0;
+    sum2 = 0;
     for j=i+1:n
       sum1 =sum1 + A(i,j)*X(j,1);
-    endfor
+    end
     for j=1:i-1
       sum2 = sum2 + A(i,j)*X(j,1);
-    endfor
+    end
     X(i,1) = (1/A(i,i))*((B(i,1)) - sum1 - sum2);
-    
-    fprintf('#%d\tX(%d) = %f \t', iter,i,X(i,1));
+ 
+    fprintf('X(%d) = %.4f \t', i,X(i,1));
     if(i==n) fprintf('\n'); end
-   endfor
+  end
    if( abs((X - Y) < tol))
       return;
     end
     Y = X;
- endfor
+end

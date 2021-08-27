@@ -1,4 +1,4 @@
-y = @(x)20*x^2 - 15*x -10;
+y = @(x)11*x^2 - 120*x -100;
 x0 = input('Enter x0: ');
 x1 = input('Enter x1: ');
 e = input('Tolerable Error: ');
@@ -22,7 +22,6 @@ x2 = (x0 + x1)/2;
   fx2 = y(x2);
 
   while abs(fx2) > e
-
     if ((fx0*fx2) < 0)
       x1 = x2;
     else

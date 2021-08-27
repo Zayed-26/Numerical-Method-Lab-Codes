@@ -3,7 +3,7 @@ y = @(x)exp(-x)-x^2;
 y1 = @(x)-exp(-x)-2*x;
 
 x0 = input('Enter x0: ');
-d = 0.01;
+%d = 0.01;
 e = input('Tolerable Error: ');
 fprintf('\n\t#\t\tx1\t\terr\n');
 for i=1:100
@@ -17,4 +17,4 @@ for i=1:100
    return
   end
   x0 = x1;
- endfor
+end
